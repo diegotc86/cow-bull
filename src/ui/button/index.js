@@ -1,3 +1,10 @@
+/*
+Define the button styles with `type` prop:
+- primary / by default
+- secondary
+- tertiary
+*/
+
 import React from "react";
 import styled, { css } from "styled-components";
 import { colors, radius } from "variables";
@@ -22,7 +29,7 @@ const secondaryStyles = css`
   background: ${colors.secondary};
   color: ${colors.dark};
   `;
-const terciaryStyles = css`
+const tertiaryStyles = css`
   padding-left: 16px;
   padding-right: 16px;
   height: 40px;
@@ -35,7 +42,7 @@ const StyledButton = styled.button`
   ${props => {
     if (props.type === "primary") return primaryStyles;
     if (props.type === "secondary") return secondaryStyles;
-    if (props.type === "terciary") return terciaryStyles;
+    if (props.type === "tertiary") return tertiaryStyles;
   }}
 `;
 
