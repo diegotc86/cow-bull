@@ -10,7 +10,7 @@ import styled, { css } from "styled-components";
 import { colors, radius } from "variables";
 
 const baseButton = `
-  width: 200px;
+  width: 100%;
   height: 56px;
   border: 2px solid ${colors.dark};
   box-sizing: border-box;

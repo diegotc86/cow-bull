@@ -1,6 +1,6 @@
 import React from "react";
 import { Router, Link } from "@reach/router";
-import Home from "views/home";
+import Home from "views/home/home";
 import NewGame from "views/new-game";
 
 function App() {
