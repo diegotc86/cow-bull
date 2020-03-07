@@ -1,12 +1,18 @@
-const colors = {
+const color = {
   primary: "#595959",
-  secondary: "#F0F0F0",
-  dark: "black"
+  secondary: "#EEEEEE",
+  dark: "black",
 };
 
 const radius = {
   small: "4px",
-  normal: "8px"
+  normal: "8px",
 };
 
-export { colors, radius };
+const weight = {
+  regular: "400",
+  medium: "600",
+  bold: "700",
+};
+
+export { color, radius, weight };

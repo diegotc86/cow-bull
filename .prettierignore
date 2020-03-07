@@ -1,0 +1,6 @@
+app/assets
+*.md
+*.markdown
+*.sass
+*.scss
+*.yml

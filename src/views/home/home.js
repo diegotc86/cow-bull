@@ -1,21 +1,22 @@
 import React from "react";
-import Button from "ui/button";
+import Button from "ui/buttons/button";
 import cow from "assets/svg/big-cow.svg";
 import bull from "assets/svg/big-bull.svg";
-import { Container, Image, Actions, Brand } from "./home.styles";
+import { Image, Brand } from "./home.styles";
+import ContainerApp from "ui/layout";
 
 function Home() {
   return (
-    <Container>
+    <ContainerApp>
       <Brand>
         <Image src={cow} />
         <Image src={bull} />
       </Brand>
-      <Actions>
-        <Button type={"secondary"}>New Game</Button>
-        <Button type={"secondary"}>I have a codename</Button>
-      </Actions>
-    </Container>
+      <div>
+        <Button type={"secondary"}>New game</Button>
+        <Button type={"secondary"}>Join a game</Button>
+      </div>
+    </ContainerApp>
   );
 }
 

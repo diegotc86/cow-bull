@@ -1,12 +1,15 @@
 import React from "react";
-import { Router, Link } from "@reach/router";
+import { Router } from "@reach/router";
+// views
+import Library from "views/library";
+import NewGame from "views/new-game/new-game";
 import Home from "views/home/home";
-import NewGame from "views/new-game";
 
 function App() {
   return (
     <Router>
-      <Home path="/" />
+      <Library path="/" />
+      <Home path="/home" />
       <NewGame path="/new-game" />
     </Router>
   );
