@@ -6,14 +6,20 @@ Define the button styles with `type` prop:
 */
 
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { color, radius } from "variables";
+
+const hoverButton = css`
+  &:hover {
+    box-shadow: 0px 0px 0px ${color.dark};
+    transform: translateY(4px);
+  }
+`;
 
 const BaseButton = styled.button`
   padding: 0;
   height: 56px;
   border: 2px solid ${color.dark};
-  box-sizing: border-box;
   box-shadow: 0px 4px 0px ${color.dark};
   border-radius: ${radius.normal};
   font-size: 18px;
@@ -24,27 +30,47 @@ const BaseButton = styled.button`
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  transition: all 0.15s;
+  box-sizing: border-box;
+  &:focus {
+    outline: none;
+  }
 `;
 
 const PrimaryStyles = styled(BaseButton)`
   background: ${color.primary};
   color: white;
+  &:active {
+    background-color: black;
+  }
+  ${hoverButton}
 `;
 
 const SecondaryStyles = styled(BaseButton)`
   background: ${color.grayHard};
   color: ${color.dark};
+  &:active {
+    background-color: #c0c0c0;
+  }
+  ${hoverButton}
 `;
 
 const TertiaryStyles = styled(BaseButton)`
   padding-left: 16px;
   padding-right: 16px;
   height: 40px;
-  line-height: 40px;
   background: ${color.grayHard};
   font-size: 14px;
   border: 0;
   box-shadow: none;
+  transition: all 0.15s;
+  border: 1px solid transparent;
+  &:hover {
+    border-color: #59595950;
+  }
+  &:active {
+    background-color: #c0c0c0;
+  }
 `;
 
 function Button({ type = "primary", className, children, as }) {
