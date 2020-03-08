@@ -32,7 +32,7 @@ const PrimaryStyles = styled(BaseButton)`
 `;
 
 const SecondaryStyles = styled(BaseButton)`
-  background: ${color.secondary};
+  background: ${color.grayHard};
   color: ${color.dark};
 `;
 
@@ -41,7 +41,7 @@ const TertiaryStyles = styled(BaseButton)`
   padding-right: 16px;
   height: 40px;
   line-height: 40px;
-  background: ${color.secondary};
+  background: ${color.grayHard};
   font-size: 14px;
   border: 0;
   box-shadow: none;

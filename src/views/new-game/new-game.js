@@ -7,19 +7,11 @@ import { Code } from "./new-game.styles";
 function NewGame() {
   return (
     <ContainerApp>
-      <div>
-        <BackButton />
-      </div>
-      <div>
-        <div>
-          <Code>ABDKNH</Code>
-          <p>Share this code with a friend to start the match</p>
-        </div>
-        <div>
-          <Button type="secondary">Copy Code</Button>
-          <Button type="primary">Start</Button>
-        </div>
-      </div>
+      <BackButton />
+      <Code>ABDKNH</Code>
+      <p>Share this code with a friend to start the match</p>
+      <Button type="secondary">Copy Code</Button>
+      <Button type="primary">Start</Button>
     </ContainerApp>
   );
 }

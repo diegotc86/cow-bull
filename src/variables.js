@@ -1,6 +1,7 @@
 const color = {
   primary: "#595959",
-  secondary: "#EEEEEE",
+  grayLight: "#F0F0F0",
+  grayHard: "#E8E8E8",
   dark: "black",
 };
 
