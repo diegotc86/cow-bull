@@ -16,3 +16,16 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
+input:focus {
+  outline: none;
+}
+
+::-moz-selection {
+  /* Code for Firefox */
+  background: transparent;
+}
+
+::selection {
+  background: transparent;
+}

@@ -73,29 +73,29 @@ const TertiaryStyles = styled(BaseButton)`
   }
 `;
 
-function Button({ type = "primary", className, children, as }) {
+function Button({ type = "primary", className, children, as, onClick }) {
   switch (type) {
     case "primary":
       return (
-        <PrimaryStyles className={className} as={as}>
+        <PrimaryStyles className={className} as={as} onClick={onClick}>
           {children}
         </PrimaryStyles>
       );
     case "secondary":
       return (
-        <SecondaryStyles className={className} as={as}>
+        <SecondaryStyles className={className} as={as} onClick={onClick}>
           {children}
         </SecondaryStyles>
       );
     case "tertiary":
       return (
-        <TertiaryStyles className={className} as={as}>
+        <TertiaryStyles className={className} as={as} onClick={onClick}>
           {children}
         </TertiaryStyles>
       );
     default:
       return (
-        <PrimaryStyles className={className} as={as}>
+        <PrimaryStyles className={className} as={as} onClick={onClick}>
           {children}
         </PrimaryStyles>
       );
