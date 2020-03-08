@@ -36,7 +36,7 @@ function App() {
         <Home path="/" />
         <NewGame path="/new-game" />
         <JoinGame path="/join-game" />
-        <PreGame path="/pre-game" />
+        <PreGame path="/pre-game/:roomId" />
         <Lobby path="/lobby" />
         <Game path="/game" />
         <Gameover path="/gameover" />

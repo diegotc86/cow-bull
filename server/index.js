@@ -8,7 +8,7 @@ const {
   processGuess,
   checkRoom,
   setRoomFull,
-  getCurrent
+  getCurrent,
 } = require("./game");
 const router = require("./router");
 
