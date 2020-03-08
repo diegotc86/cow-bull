@@ -30,7 +30,7 @@ const BaseButton = styled.button`
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.15s;
+  transition: all 0.15s ease-in;
   box-sizing: border-box;
   &:focus {
     outline: none;
@@ -63,7 +63,7 @@ const TertiaryStyles = styled(BaseButton)`
   font-size: 14px;
   border: 0;
   box-shadow: none;
-  transition: all 0.15s;
+  transition: all 0.15s ease-in;
   border: 1px solid transparent;
   &:hover {
     border-color: #59595950;
