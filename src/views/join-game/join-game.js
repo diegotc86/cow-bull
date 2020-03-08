@@ -1,17 +1,24 @@
 import React from "react";
 import BackButton from "ui/buttons/back-button";
 import Button from "ui/buttons/button";
-import ContainerApp from "ui/layout";
+import ContainerApp from "components/container-app";
 import InputText from "ui/form/input-text";
-import {} from "./join-game.styles";
+import { Center } from "ui/layout";
+import * as S from "./join-game.styles";
 
 function JoinGame() {
   return (
     <ContainerApp>
-      <BackButton />
-      <p>Put your code and start to play</p>
-      <InputText label="Code" center placeholder="Put your code here" />
-      <Button type="primary">Join</Button>
+      <S.StyledLink to="/">
+        <BackButton />
+      </S.StyledLink>
+      <Center>
+        <InputText label="Code" center placeholder="Put your code here" />
+        <S.Message>Put your code and start to play</S.Message>
+        <S.Actions>
+          <Button type="primary">Join</Button>
+        </S.Actions>
+      </Center>
     </ContainerApp>
   );
 }

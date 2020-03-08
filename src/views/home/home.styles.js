@@ -7,7 +7,29 @@ const Image = styled.img`
 `;
 
 const Brand = styled.div`
-  margin: auto;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 64px;
 `;
 
-export { Image, Brand };
+const Center = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+`;
+
+const Actions = styled.div`
+  display: flex;
+  flex-direction: column;
+  max-width: 200px;
+  width: 100%;
+  align-items: stretch;
+  margin-right: auto;
+  margin-left: auto;
+  & > *:first-child {
+    margin-bottom: 24px;
+  }
+`;
+
+export { Image, Brand, Center, Actions };

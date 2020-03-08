@@ -1,11 +1,12 @@
 import React from "react";
 import BackButton from "ui/buttons/back-button";
 import Button from "ui/buttons/button";
-import ContainerApp from "ui/layout";
+import ContainerApp from "components/container-app";
 import InputText from "ui/form/input-text";
 import { FaArrowRight } from "react-icons/fa";
-import {} from "./pre-game.styles";
 import styled from "styled-components";
+import { Center } from "ui/layout";
+import * as S from "./pre-game.styles";
 
 const ArroRightIcon = styled(FaArrowRight)`
   font-size: 14px;
@@ -15,16 +16,22 @@ const ArroRightIcon = styled(FaArrowRight)`
 function PreGame() {
   return (
     <ContainerApp>
-      <BackButton />
-      <InputText
-        label="Put a number of 4 digits"
-        center
-        placeholder="# # # #"
-      />
-      <p>[!] The numbers mustn't repeat</p>
-      <Button type="primary">
-        Next <ArroRightIcon />
-      </Button>
+      <Center>
+        <S.StyledLink to="/new-game">
+          <BackButton />
+        </S.StyledLink>
+        <InputText
+          label="Put a number of 4 digits"
+          center
+          placeholder="# # # #"
+        />
+        <S.Message>[!] The numbers mustn't repeat</S.Message>
+        <S.Actions>
+          <Button type="primary">
+            Next <ArroRightIcon />
+          </Button>
+        </S.Actions>
+      </Center>
     </ContainerApp>
   );
 }

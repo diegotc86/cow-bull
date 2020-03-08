@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Link from "ui/link";
 import { color, weight, radius } from "variables";
 
 const Code = styled.div`
@@ -11,4 +12,39 @@ const Code = styled.div`
   width: fit-content;
   letter-spacing: 4px;
 `;
-export { Code };
+
+const Header = styled.div`
+  display: flex;
+`;
+
+const Body = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+const StyledLink = styled(Link)`
+  position: absolute;
+  top: 16px;
+  left: 16px;
+`;
+
+const Message = styled.p`
+  max-width: 248px;
+  text-align: center;
+  margin-bottom: 48px;
+`;
+
+const Actions = styled.div`
+  max-width: 200px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+`;
+
+const Space = styled.div`
+  height: 32px;
+`;
+
+export { Code, Header, Body, StyledLink, Message, Actions, Space };

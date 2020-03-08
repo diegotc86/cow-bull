@@ -1,23 +1,7 @@
 import styled from "styled-components";
-import { color } from "variables";
-import { FaArrowRight } from "react-icons/fa";
-import Button from "ui/buttons/button";
-import InputText from "ui/form/input-text";
+import { color, weight } from "variables";
 import BigNumbers from "components/big-numbers";
 import Move from "components/move/move";
-
-const StyledInputText = styled(InputText)`
-  flex: 1 1 0;
-`;
-
-const SendButton = styled(Button)`
-  padding: 0;
-  position: relative;
-  top: -4px;
-  height: 50px;
-  width: 50px;
-  margin-left: 8px;
-`;
 
 const Footer = styled.div`
   background-color: ${color.grayLight};
@@ -29,10 +13,6 @@ const Footer = styled.div`
   position: relative;
   z-index: 1;
   overflow-y: hidden;
-`;
-
-const ArroRightIcon = styled(FaArrowRight)`
-  font-size: 14px;
 `;
 
 const Grid = styled.div`
@@ -66,27 +46,11 @@ const Links = styled.div`
   padding: 16px;
 `;
 
-const Heading4 = styled.span`
-  font-size: 12px;
-  text-transform: uppercase;
-`;
-
-const HeaderContent = styled.div`
-  position: absolute;
-  height: 100%;
-  top: 0;
-  left: 16px;
-  right: 16px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
 const Moves = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: calc(100% - 136px);
+  height: calc(100% - 182px);
   overflow-y: auto;
   box-sizing: border-box;
   padding-bottom: 16px;
@@ -96,26 +60,36 @@ const Moves = styled.div`
 `;
 
 const StyledBigNumbers = styled(BigNumbers)`
-  margin-bottom: 24px;
-  margin-top: 64px;
+  margin-bottom: 16px;
 `;
 
 const StyledMove = styled(Move)`
   flex-shrink: 0;
 `;
 
+const Heading3 = styled.div`
+  font-weight: ${weight.bold};
+  font-size: 24px;
+  margin-bottom: 8px;
+  margin-top: 56px;
+`;
+
+const Resume = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+`;
+
 export {
   Footer,
-  ArroRightIcon,
-  SendButton,
-  StyledInputText,
   Grid,
   Header,
   Body,
   Links,
-  Heading4,
-  HeaderContent,
   Moves,
   StyledMove,
   StyledBigNumbers,
+  Heading3,
+  Resume,
 };

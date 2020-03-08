@@ -13,8 +13,8 @@ import Gameover from "views/gameover/gameover";
 function App() {
   return (
     <Router>
-      <Library path="/" />
-      <Home path="/home" />
+      <Library path="library" />
+      <Home path="/" />
       <NewGame path="/new-game" />
       <JoinGame path="/join-game" />
       <PreGame path="/pre-game" />

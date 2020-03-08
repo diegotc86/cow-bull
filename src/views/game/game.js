@@ -1,5 +1,5 @@
 import React from "react";
-import ContainerApp from "ui/layout";
+import ContainerApp from "components/container-app";
 import ProgressBar from "components/progress-bar";
 import Move from "components/move/move";
 import {

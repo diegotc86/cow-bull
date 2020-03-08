@@ -1,6 +1,6 @@
 import React from "react";
 import Button from "ui/buttons/button";
-import ContainerApp from "ui/layout";
+import ContainerApp from "components/container-app";
 import {} from "./lobby.styles";
 import styled from "styled-components";
 import { weight } from "variables";
