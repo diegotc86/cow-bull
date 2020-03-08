@@ -1,13 +1,19 @@
-import React from "react";
+import React, { useRef } from "react";
 import BackButton from "ui/buttons/back-button";
 import Button from "ui/buttons/button";
 import ContainerApp from "components/container-app";
-import { Code } from "./new-game.styles";
 import { Center } from "ui/layout";
 import Link from "ui/link";
 import * as S from "./new-game.styles";
 
-function NewGame() {
+function NewGame({ codeNumber = "0000" }) {
+  const inputCode = useRef(null);
+
+  const copyCode = () => {
+    inputCode.current.select();
+    document.execCommand("copy");
+  };
+
   return (
     <ContainerApp>
       <Center>
@@ -15,12 +21,19 @@ function NewGame() {
           <BackButton />
         </S.StyledLink>
         <S.Body>
-          <Code>ABDKNH</Code>
+          <S.Code
+            ref={inputCode}
+            type="text"
+            readOnly
+            value={codeNumber}
+          ></S.Code>
           <S.Message>
             Share this code with a friend to start the match
           </S.Message>
           <S.Actions>
-            <Button type="secondary">Copy Code</Button>
+            <Button onClick={copyCode} type="secondary">
+              Copy Code2
+            </Button>
             <S.Space />
             <Link to="/pre-game">
               <Button type="primary">Start</Button>

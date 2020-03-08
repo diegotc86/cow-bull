@@ -2,15 +2,19 @@ import styled from "styled-components";
 import Link from "ui/link";
 import { color, weight, radius } from "variables";
 
-const Code = styled.div`
+const Code = styled.input`
   background-color: ${color.grayHard};
   display: flex;
   padding: 8px 48px;
+  text-align: center;
   font-size: 40px;
   font-weight: ${weight.medium};
   border-radius: ${radius.normal};
-  width: fit-content;
   letter-spacing: 4px;
+  border: 0;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: monospace;
 `;
 
 const Header = styled.div`
