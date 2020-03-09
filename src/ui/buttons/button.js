@@ -16,6 +16,11 @@ const hoverButton = css`
   }
 `;
 
+const disabled = css`
+  opacity: 0.5;
+  pointer-events: none;
+`;
+
 const BaseButton = styled.button`
   padding: 0;
   height: 56px;
@@ -35,6 +40,7 @@ const BaseButton = styled.button`
   &:focus {
     outline: none;
   }
+  ${props => props.disabled && disabled};
 `;
 
 const PrimaryStyles = styled(BaseButton)`
@@ -73,29 +79,56 @@ const TertiaryStyles = styled(BaseButton)`
   }
 `;
 
-function Button({ type = "primary", className, children, as, onClick }) {
+function Button({
+  type = "primary",
+  className,
+  children,
+  as,
+  onClick,
+  disabled,
+}) {
   switch (type) {
     case "primary":
       return (
-        <PrimaryStyles className={className} as={as} onClick={onClick}>
+        <PrimaryStyles
+          className={className}
+          as={as}
+          onClick={onClick}
+          disabled={disabled}
+        >
           {children}
         </PrimaryStyles>
       );
     case "secondary":
       return (
-        <SecondaryStyles className={className} as={as} onClick={onClick}>
+        <SecondaryStyles
+          className={className}
+          as={as}
+          onClick={onClick}
+          disabled={disabled}
+        >
           {children}
         </SecondaryStyles>
       );
     case "tertiary":
       return (
-        <TertiaryStyles className={className} as={as} onClick={onClick}>
+        <TertiaryStyles
+          className={className}
+          as={as}
+          onClick={onClick}
+          disabled={disabled}
+        >
           {children}
         </TertiaryStyles>
       );
     default:
       return (
-        <PrimaryStyles className={className} as={as} onClick={onClick}>
+        <PrimaryStyles
+          className={className}
+          as={as}
+          onClick={onClick}
+          disabled={disabled}
+        >
           {children}
         </PrimaryStyles>
       );
