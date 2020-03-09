@@ -5,10 +5,7 @@ import Library from "views/library";
 import Home from "views/home/home";
 import NewGame from "views/new-game/new-game";
 import JoinGame from "views/join-game/join-game";
-import PreGame from "views/pre-game/pre-game";
-import Lobby from "views/lobby/lobby";
-import Game from "views/game/game";
-import Gameover from "views/gameover/gameover";
+import Game from "./Game";
 import SocketContext from "./contexts/SocketContext";
 import io from "socket.io-client";
 
@@ -36,10 +33,7 @@ function App() {
         <Home path="/" />
         <NewGame path="/new-game" />
         <JoinGame path="/join-game" />
-        <PreGame path="/pre-game/:roomId" />
-        <Lobby path="/lobby" />
-        <Game path="/game" />
-        <Gameover path="/gameover" />
+        <Game path="/game/:roomId" />
       </Router>
     </SocketContext.Provider>
   );

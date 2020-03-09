@@ -10,11 +10,11 @@ import * as S from "./new-game.styles";
 function NewGame() {
   const inputCode = useRef(null);
   const socket = useContext(SocketContext);
-  const [room, setRoom] = useState("");
+  const [roomId, setRoomId] = useState("");
 
   useEffect(() => {
     if (!socket) return;
-    socket.emit("createRoom", null, room => setRoom(room.id));
+    socket.emit("createRoom", null, room => setRoomId(room.id));
   }, [socket]);
 
   const copyCode = () => {
@@ -29,7 +29,7 @@ function NewGame() {
           <BackButton />
         </S.StyledLink>
         <S.Body>
-          <S.Code ref={inputCode} type="text" readOnly value={room}></S.Code>
+          <S.Code ref={inputCode} type="text" readOnly value={roomId}></S.Code>
           <S.Message>
             Share this code with a friend to start the match
           </S.Message>
@@ -38,7 +38,7 @@ function NewGame() {
               Copy Code
             </Button>
             <S.Space />
-            <Link to={`/pre-game/${room}`}>
+            <Link to={`/game/${roomId}`}>
               <Button type="primary">Start</Button>
             </Link>
           </S.Actions>

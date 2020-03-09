@@ -5,10 +5,10 @@ import ContainerApp from "components/container-app";
 import { Center } from "ui/layout";
 import * as S from "./pre-game.styles";
 
-function PreGame() {
+function PreGame({ setParent }) {
   const [number, setNumber] = useState("");
   const [valid, setValid] = useState(true);
-  const handleClick = () => {};
+
   const handleChangeNumber = event => {
     const value = event.currentTarget.value;
     if (value.match(/^\d{0,4}$/)) {
@@ -21,6 +21,10 @@ function PreGame() {
     const cleanRepeat = [...new Set(splitNumber)];
     setValid(cleanRepeat.length !== 4);
   }, [number]);
+
+  const handleClick = () => {
+    setParent(number);
+  };
 
   return (
     <ContainerApp>

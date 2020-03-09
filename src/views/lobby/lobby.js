@@ -34,7 +34,7 @@ const TextCenter = styled.p`
   text-align: center;
 `;
 
-function PreGame() {
+function Lobby({ roomId }) {
   return (
     <ContainerApp>
       <Body>
@@ -44,11 +44,11 @@ function PreGame() {
           <TextCenter>Waiting oponent...</TextCenter>
         </Center>
         <StyledButton type="secondary">
-          Copy code room: <Code>ABDKNH</Code>
+          Copy code room: <Code>{roomId}</Code>
         </StyledButton>
       </Body>
     </ContainerApp>
   );
 }
 
-export default PreGame;
+export default Lobby;
