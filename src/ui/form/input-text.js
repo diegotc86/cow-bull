@@ -20,7 +20,16 @@ const Input = styled.input`
   text-align: ${props => (props.center ? "center" : "left")};
 `;
 
-function InputText({ label, placeholder, id, name, center, className }) {
+function InputText({
+  label,
+  placeholder,
+  id,
+  name,
+  center,
+  className,
+  onChange,
+  value,
+}) {
   return (
     <>
       <div className={className}>
@@ -35,6 +44,8 @@ function InputText({ label, placeholder, id, name, center, className }) {
           id={id}
           placeholder={placeholder}
           name={name}
+          onChange={onChange}
+          value={value}
         />
       </div>
     </>

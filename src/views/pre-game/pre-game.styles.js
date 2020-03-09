@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import Link from "ui/link";
+import { FaArrowRight } from "react-icons/fa";
+import InputText from "ui/form/input-text";
 
 const StyledLink = styled(Link)`
   position: absolute;
@@ -18,4 +20,13 @@ const Actions = styled.div`
   flex-direction: column;
 `;
 
-export { StyledLink, Message, Actions };
+const ArroRightIcon = styled(FaArrowRight)`
+  font-size: 14px;
+  margin-left: 8px;
+`;
+
+const StyledInputText = styled(InputText)`
+  font-size: 20px;
+`;
+
+export { StyledLink, Message, Actions, ArroRightIcon, StyledInputText };
