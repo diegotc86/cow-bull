@@ -4,57 +4,7 @@ import { useParams } from "@reach/router";
 import Pregame from "./views/pre-game/pre-game";
 import Lobby from "./views/lobby/lobby";
 import Match from "./views/match/match";
-
-const End = ({ guessList, moves, winner, oppData, number }) => {
-  const socket = useContext(SocketContext);
-  const [showYours, setShowYours] = useState(true);
-
-  const handleRematch = () => {
-    socket.emit("rematch", {}, () => {});
-  };
-
-  const handleViewSwitch = () => {
-    setShowYours(!showYours);
-  };
-
-  const Moves = ({ list }) => {
-    return (
-      <ul>
-        {list.map((item, index) => (
-          <li key={index}>
-            {`${item.guess}: cows:${item.result.cows} bulls:${item.result.bulls}`}
-          </li>
-        ))}
-      </ul>
-    );
-  };
-
-  const showMessage = () => {
-    return winner ? `You resolved it on ${moves} moves` : "Your moves";
-  };
-
-  return (
-    <main>
-      <section>
-        <a href="/">Home</a>
-        <button onClick={handleViewSwitch}>
-          {showYours ? "Opponent Moves" : "My Moves"}
-        </button>
-      </section>
-      <section>
-        <p>{`You ${winner ? "win" : "lose"}`}</p>
-        <p>{showYours ? oppData.number : number}</p>
-        <section>
-          <p>{showYours ? showMessage() : "Opponent moves"}</p>
-          <Moves list={showYours ? guessList : oppData.guessList} />
-        </section>
-        <section>
-          <button onClick={handleRematch}>Rematch</button>
-        </section>
-      </section>
-    </main>
-  );
-};
+import GameOver from "./views/gameover/gameover";
 
 function Game() {
   const socket = useContext(SocketContext);
@@ -87,21 +37,19 @@ function Game() {
 
   useEffect(() => {
     if (!socket) return;
-    socket.on("end", () => {
-      setGameState("end");
+    socket.on("gameover", () => {
+      setGameState("gameover");
     });
   }, [socket]);
 
   useEffect(() => {
-    if (gameState !== "end") return;
-    console.log("Mandar:", number, guessList, roomId);
+    if (gameState !== "gameover") return;
     socket.emit("sendData", { number, guessList, roomId }, () => {});
   }, [gameState]);
 
   useEffect(() => {
     if (!socket) return;
     socket.on("opponentData", ({ number, guessList }) => {
-      console.log("data received:", number, guessList);
       setOppNumber(number);
       SetOppGuessList(guessList);
     });
@@ -127,8 +75,8 @@ function Game() {
           setWinner={setWinner}
         />
       )}
-      {gameState === "end" && (
-        <End
+      {gameState === "gameover" && (
+        <GameOver
           moves={moves}
           guessList={guessList}
           winner={winner}

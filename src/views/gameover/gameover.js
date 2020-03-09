@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useContext } from "react";
+import SocketContext from "../../contexts/SocketContext";
 import ContainerApp from "components/container-app";
 import Button from "ui/buttons/button";
 import { Link } from "@reach/router";
@@ -16,7 +17,36 @@ import {
   Resume,
 } from "./gameover.styles";
 
-function NewGame({ number = "4325", myPlay = true, plays = 0 }) {
+function GameOver({ guessList, moves, winner, oppData, number }) {
+  const socket = useContext(SocketContext);
+  const [showYours, setShowYours] = useState(true);
+
+  const handleRematch = () => {
+    socket.emit("rematch", {}, () => {});
+  };
+
+  const handleViewSwitch = () => {
+    setShowYours(!showYours);
+  };
+
+  const MovesList = ({ list }) => {
+    return (
+      <>
+        {list.map((item, index) => (
+          <StyledMove
+            key={index}
+            number={item.guess}
+            result={[item.result.cows, item.result.bulls]}
+          />
+        ))}
+      </>
+    );
+  };
+
+  const showMessage = () => {
+    return winner ? `You resolved it on ${moves} moves` : "Your moves";
+  };
+
   return (
     <ContainerApp>
       <Grid>
@@ -27,40 +57,32 @@ function NewGame({ number = "4325", myPlay = true, plays = 0 }) {
                 Home
               </Button>
             </Link>
-            {myPlay ? (
-              <Button type="tertiary">Adversary plays</Button>
-            ) : (
-              <Button type="tertiary">My plays</Button>
-            )}
+            <Button type="tertiary" onClick={handleViewSwitch}>
+              {showYours ? "Opponent Moves" : "My Moves"}
+            </Button>
           </Links>
         </Header>
         <Body>
           <Resume>
-            <Heading3>{myPlay ? "YOU WIN" : "Adversary plays"}</Heading3>
-            <StyledBigNumbers mode="dark" number={number} />
-            <p>{myPlay ? `You resolved it in ${plays} plays` : "gg wp"}</p>
+            <Heading3>{winner ? "YOU WIN" : "YOU LOSE"}</Heading3>
+            <StyledBigNumbers
+              mode="dark"
+              number={showYours ? oppData.number : number}
+            />
+            <p>{showYours ? showMessage() : "Opponent moves"}</p>
           </Resume>
           <Moves>
-            <StyledMove number={1234} result={[1, 2]} />
-            <StyledMove number={7653} result={[2, 2]} />
-            <StyledMove number={7452} result={[0, 2]} />
-            <StyledMove number={4673} result={[1, 2]} />
-            <StyledMove number={4673} result={[1, 1]} />
-            <StyledMove number={4673} result={[1, 1]} />
-            <StyledMove number={4673} result={[1, 3]} />
-            <StyledMove number={4673} result={[3, 1]} />
-            <StyledMove number={4673} result={[0, 2]} />
-            <StyledMove number={4673} result={[0, 0]} />
-            <StyledMove number={4673} result={[0, 4]} />
-            <StyledMove number={4673} result={[4, 0]} />
+            <MovesList list={showYours ? guessList : oppData.guessList} />
           </Moves>
         </Body>
         <Footer>
-          <Button type="primary">Rematch</Button>
+          <Button type="primary" onClick={handleRematch}>
+            Rematch
+          </Button>
         </Footer>
       </Grid>
     </ContainerApp>
   );
 }
 
-export default NewGame;
+export default GameOver;
