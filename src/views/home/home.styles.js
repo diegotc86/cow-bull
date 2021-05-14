@@ -4,6 +4,10 @@ const Image = styled.img`
   margin-right: 16px;
   margin-left: 16px;
   vertical-align: top;
+  animation: vibrate-1 1s linear infinite both;
+  &:first-child {
+    animation-delay: 0.5s;
+  }
 `;
 
 const Brand = styled.div`
